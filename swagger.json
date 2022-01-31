@@ -2,22 +2,139 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0", 
-    "title": "My User Project CRUD",
-    "description": "My User Project Application API",
+    "title": "Link Shortener",
+    "description": "a api to Link Shortener",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "localhost:8000",
+  "host": "localhost:3000",
   "basePath": "/",
   "tags": [
     {
-      "name": "Users",
-      "description": "API for users in the system"
+      "name": "link",
+      "description": "API for turn links short"
     }
   ],
   "schemes": ["http"],
-  "consumes": ["application/json"],
-  "produces": ["application/json"]
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/porperiodo/": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "datainicial",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          
+           { "name": "datafinal",
+            "in": "path",
+            "required": true,
+            "type": "string"}
+          
+           ],
+        "responses": {
+          "200": {
+            "description": "json com resultado"
+
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/encurtar": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "myurl",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Link gerado"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/porid/": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+          
+           ],
+        "responses": {
+          "200": {
+            "description": "json com resultado"
+
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/porencurtamento/": {
+      "get": {
+        "tags": [],
+        "description": "retorna todos os links ja encurtados com o texto contendo a pesquisa enviada no body.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "encurtamento",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+          
+           ],
+        "responses": {
+          "200": {
+            "description": "json com resultado"
+
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  }
+
 }
