@@ -48,7 +48,7 @@ app.post('/encurtar', (req, res) => {
 	});
 })
 
-app.get('/porperiodo',async (req, res) => {
+app.post('/porperiodo',async (req, res) => {
 	var datainicial = req.body.datainicial
 	var datafinal = req.body.datafinal
 
